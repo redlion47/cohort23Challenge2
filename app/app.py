@@ -43,7 +43,7 @@ def sign_Up():
     #validation of the data received
     if pwd == conpwd:
 
-        return render_template('ViewPage.html', uname=username, result={})
+        return redirect(render_template('ViewPage.html', uname=username, result={}))
 
     else:
         return render_template('UserReg.html', errorMessage="!!YOUR CONFIRMATION \
@@ -117,6 +117,7 @@ def added_Recipe():
 
 if __name__ == '__main__':
 
-    App.debug = True
-    App.run()
+
+    #App.debug = True
+    App.run(port = 9000)
     
