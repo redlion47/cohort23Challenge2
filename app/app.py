@@ -43,7 +43,7 @@ def sign_Up():
     #validation of the data received
     if pwd == conpwd:
 
-        return redirect(render_template('ViewPage.html', uname=username, result={}))
+        return render_template('ViewPage.html', uname=username, result={})
 
     else:
         return render_template('UserReg.html', errorMessage="!!YOUR CONFIRMATION \
@@ -119,5 +119,5 @@ if __name__ == '__main__':
 
 
     #App.debug = True
-    App.run(port = 9000)
+    App.run()
     
