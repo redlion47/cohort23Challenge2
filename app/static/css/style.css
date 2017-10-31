@@ -1,0 +1,14 @@
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
+.body-color {
+	 background-color: hsla(0, 100%, 30%, 0.3);
+	 color:blue;
+}
+.form-layout {
+	border: 5px solid #b4b4b4; 
+	border-radius: 25px; 
+	background-color : rgb(131, 91, 120);
+	width: 50%;
+}
+h1 {
+	font-size: 300%
+}

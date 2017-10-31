@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang ="en">
+	<head>
+		<title>addRecipe</title>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<script>
+			$(document).ready(function(){
+    			$("#del").click(function(){
+       				 $("#lst").remove();
+    			});
+			});
+		</script>
+
+	</head>
+	<body style="color:blue; background-color: #b9b9b9;">
+		<h1 align = "center">YUMMY RECIPES</h1>
+		<div class = "container" align = "center" style = "padding-top:10%; display: block;">
+			<form class = "form-signin btn-lg" style = " display: block;" action = "/recipeAdded" method = "POST">
+				<label style ="padding-right:2%;">RECIPE NAME:</label> 
+				<input type = "text" class= "btn-lg"  name = "recipeName" style ="padding-right:27%;">
+
+				<!--<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')" style ="color: #b9b9b9; background-color: #b9b9b9; border: none;" ></button>
+				<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" style ="color: #b9b9b9; background-color: #b9b9b9; border: none;"></button>-->
+				<br />
+
+				<label style="padding-right:2%;">INGREDIENTS:</label> 
+				<input type = "text" class= "btn-lg"  name = "ingredients" style ="padding-right: 25%; padding-left:4%;"placeholder = "Enter your ingredients">
+
+				<!--<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')"></button>
+				<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>-->
+				<br />
+				
+				<label >INSTRUCTIONS:</label> 
+				<textarea class= "btn-lg"  name = "instructions" style ="padding-right: 30%; " placeholder = "Enter your cooking instructions" rows= "1" cols= "15"></textarea>
+
+				<!--<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')"></button>
+				<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>-->
+				<br />
+
+				<div style ="padding-top: 10%;" class = "container">
+					<button class="btn-lg btn-primary" >+ ADD</button>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

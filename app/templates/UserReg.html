@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang ="en">
+	<head>
+
+		<title>UserReg</title>
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	</head>
+	<body  class="body-color" style = "background-image:url('images/set-table.jpg');">
+
+		<h1 align = "center" style="padding-right:10%"><i>YUMMY RECIPES</i></h1>
+
+		<div class = "container" align = "center" style = "padding-top:5%; display: block;">
+
+			
+			<form class = "form-signin form-group row btn-lg form-layout" style = "display: block;" action = "/UserReg" method = "POST">
+
+				<b style="color:red;">{{ errorMessage }}</b><br />
+
+				<div class = " form-group row" style= "display: inline;">
+
+					<label class = "col-2 col-form-label">Username:</label> 
+
+					<div class ="col-10">
+
+						<input type = "text" class= " btn-lg"  name = "username">
+
+					</div>
+				</div><br />
+				<div class = " form-group row">
+
+					<label class = "col-2 col-form-label">Email:</label> 
+
+					<div class ="col-10">
+
+						<input type = "email" id= "inputEmail" class= "btn-lg"  name = "email" >
+
+					</div>
+
+				</div><br />
+
+				<div class = " form-group row">
+
+					<label class = "col-2 col-form-label">Password:</label>
+
+					<div class ="col-10">
+
+						<input type = "password" id= "inputPassword" name = "password" class= " btn-lg" required >
+
+					</div>
+				</div><br />
+
+				<div class = " form-group row">
+
+					<label class = "col-2 col-form-label" >Confirm Password: </label>
+
+					<div class ="col-10">
+
+						<input type = "password" id= "inputPassword" name = "conpassword" class= "btn-lg" required>
+
+					</div>
+				</div><br />
+
+				<button class="btn-lg btn-primary">SUBMIT</button>
+				
+			</form>
+
+		</div>
+	</body>
+</html>

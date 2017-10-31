@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang ="en">
+	<head>
+
+		<title>Recipe Categories</title>
+
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+    			$("#del").click(function(){
+       				 $("#lst").remove();
+    			});
+			});
+		</script>
+		
+
+	</head>
+
+	<body style="background-color: #b9b9b9;">
+
+		<h1 style = "color: blue;" align = "center" class="form-signin-heading">YUMMY RECIPES</h1>
+
+		<b align ="left">Welcome {{ uname }}!</b>
+
+		<div class ="container" align = "center" style = "padding-top:10%; display: block;">
+
+			<b>
+
+				<ol type="1">
+
+					<li id="lst">
+
+						<b style = "padding-right: 10%;">first category</b>
+
+						<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')"></button>
+						<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
+
+					</li>
+
+					{% for key in result %}
+
+					<li id="lst">
+
+						<b style = "padding-right: 10%;">{{ key }}</b>
+
+						<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')"></button>
+						<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
+
+					</li>
+					{% endfor %}
+
+				</ol>
+
+			</b>
+
+			<button class="btn btn-primary" style = "padding-left: 10%; padding-right: 10%;" onclick="location.href='/addCategory';"><b>+ ADD CATEGORY</b></button>
+			
+		</div>
+	</body>
+</html> 

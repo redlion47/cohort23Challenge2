@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang ="en">
+	<head>
+
+		<title>yummy time</title>
+
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		
+	</head>
+
+	<body style="background-color: #b9b9b9;">
+
+		<h1 style = "color: blue;" align = "center" class="form-signin-heading">YUMMY RECIPES</h1>
+
+		<div class ="container" align = "center" style = "padding-top:10%; display: block;">
+
+			<table class = "table table-bordered table-striped">
+
+				<thead>
+					<h2>THAT YUMMY MOMENT</h2>
+				</thead>
+
+				<tr>
+
+					<th>
+						<b>INGREDIENT</b>
+					</th>
+
+					<th>
+						<b>INSTRUCTIONS</b>
+					</th>
+
+				</tr>
+
+
+				<tr>
+
+					<td><ol><li>first ingredient</li></ol></td>
+					<td><ul><li>the instructions to cook</li></ul></td>
+
+				</tr>
+				{% for key in details %}
+
+				<tr>
+
+					<td><ol><li>{{ }}</li></ol></td>
+					<td><ul><li>the instructions to cook</li></ul></td>
+
+				</tr>
+				{%endfor%}
+			</table>
+			
+		</div>
+	</body>
+</html> 

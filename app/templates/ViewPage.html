@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang ="en">
+	<head>
+		<title>ViewPage</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
+	</head>
+	<body class="body-color" style = "background-image:url('images/set-table.jpg');">
+
+		<h1 align = "center">YUMMY RECIPES</h1>
+
+		<p align = "left"><b>WELCOME TO YUMMY {{ uname}}</b></p>
+
+		<div align = "center" style = "padding-top:15%; display: block;">
+			<table style= "width: 80%" class = "table table-bordered table-striped table-dark table-sm table-hover">
+
+				<thead >
+					<h2>THAT YUMMY MOMENT</h2>
+				</thead>
+
+				<tr >
+					<th scope="col">
+						<b>RECIPE NAME</b>
+					</th>
+
+					<th scope="col">
+						<b>INGREDIENT</b>
+					</th>
+
+					<th scope="col">
+						<b>INSTRUCTIONS</b>
+					</th>
+					<th></th>
+
+				</tr>
+
+
+				<tr>
+					<td><ol><li>ugali madondo</li></ol></td>
+					<td><ul><li>flour beans</li></ul></td>
+					<td><ul><li>cook at high temperature</li></ul></td>
+					<td>
+						<button class="btn btn-primary glyphicon glyphicon-pencil" type ="button"></button>
+						<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
+					</td>
+
+				</tr>
+				{% if results != {} %}
+
+				<tr>
+
+					<td><ol><li>{{ result['recipeName'] }}</li></ol></td>
+					<td><ul><li>{{result['Ingredients']}}</li></ul></td>
+					<td><ul><li>{{result['Instructions']}}</li></ul></td>
+					<td>
+						<button class="btn btn-primary glyphicon glyphicon-pencil" type ="button"></button>
+						<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
+					</td>
+
+				</tr>
+				{%endif%}
+			</table>
+
+				
+		</div>
+	</body>
+</html>
