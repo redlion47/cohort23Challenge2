@@ -9,13 +9,12 @@ install:
   - pip install appdirs --upgrade
 
 script:
-  - python test_web_app.py
-  - pytest
+  # - python test_web_app.py
+  # - pytest
   - nosetests --exe -v
   - nosetests --exe --with-coverage --cover-package=app
-  - coveralls
 
 
 after_success: 
-  - coveralls
+  - "coveralls"
 

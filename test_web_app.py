@@ -1,6 +1,6 @@
 import os
 import unittest
-from app import App
+from app.app import App
 
 
 class LoginTest(unittest.TestCase):
