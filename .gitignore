@@ -1,0 +1,11 @@
+#testin my .gitignore
+
+TDDtrials/
+FlaskApp/
+app/
+tests/
+tcl/
+Scripts/
+man/
+Lib/
+Include/
