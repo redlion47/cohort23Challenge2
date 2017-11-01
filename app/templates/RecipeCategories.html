@@ -39,11 +39,11 @@
 
 					</li>
 
-					{% for key in result %}
+					{% for category in session.categories%}
 
 					<li id="lst">
 
-						<b style = "padding-right: 10%;">{{ key }}</b>
+						<b style = "padding-right: 10%;">{{category.title}}</b>
 
 						<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')"></button>
 						<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
