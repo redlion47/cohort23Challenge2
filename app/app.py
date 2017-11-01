@@ -72,8 +72,8 @@ def user_Login():
         return render_template('LoginPage.html', errorMessage="username \
         	or password not match")
     
-    #return redirect(url_for('addCategory'))
-    return render_template('addCategory.html')
+    #return redirect(url_for('viewCategory'))
+    return render_template('RecipeCategories.html')
         # return render_template('ViewPage.html', uname=username, result={})
 
 #adding recipe category
