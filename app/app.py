@@ -1,13 +1,17 @@
 """This file is ensuring the
 UIs interract seamlessly"""
 from flask import Flask, render_template, request, redirect, url_for, session
+
 import category, usersReg
 
 Category = category.Category
 
 Users = usersReg.UsersReg
 
+
+Category = category.Category
 App = Flask(__name__, instance_relative_config=True, static_url_path='', static_folder='static')
+App.config.from_object('config')
 
 App.config.from_object('config')
 
@@ -61,6 +65,7 @@ def sign_Up():
         else:
             return render_template('UserReg.html', errorMessage = response['message'])
 
+
     else:
         return render_template('UserReg.html', errorMessage="!!YOUR CONFIRMATION \
         	PASSWORD DOESN'T MATCH YOUR PASSWORD!!")
@@ -105,6 +110,7 @@ def addCategory():
         return render_template('addCategory.html', errorMessage = response['message'])
         
 #shows all the category list added
+
 @App.route('/recipeCategory')
 def viewCategory():
 
