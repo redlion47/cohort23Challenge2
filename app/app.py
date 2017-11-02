@@ -1,8 +1,15 @@
 """This file is ensuring the
 UIs interract seamlessly"""
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
+import category, usersReg
+
+Category = category.Category
+
+Users = usersReg.UsersReg
 
 App = Flask(__name__, instance_relative_config=True, static_url_path='', static_folder='static')
+
+App.config.from_object('config')
 
 #start the home page
 @App.route('/')
@@ -34,7 +41,7 @@ def sign_Up():
     requirements are executed"""
     #code to get the input entered by the user
     username = request.form['username']
-    #email = request.form['email']
+    email = request.form['email']
     pwd = request.form['password']
     conpwd = request.form['conpassword']
 
@@ -43,7 +50,16 @@ def sign_Up():
     #validation of the data received
     if pwd == conpwd:
 
-        return render_template('ViewPage.html', uname=username, result={})
+        response = Users.addUsersReg(username,email,pwd)
+
+        if response['status']:
+
+            session['Users'] = response['UsersReg']
+
+            return redirect(url_for('show_Login'))# return render_template('ViewPage.html', uname=username, result={})
+
+        else:
+            return render_template('UserReg.html', errorMessage = response['message'])
 
     else:
         return render_template('UserReg.html', errorMessage="!!YOUR CONFIRMATION \
@@ -68,23 +84,41 @@ def user_Login():
     #credentials.get(username, None) == None or pwd != credentials[username]:
         return render_template('LoginPage.html', errorMessage="username \
         	or password not match")
-    else:
-        return render_template('ViewPage.html', uname=username, result={})
+    
+    #return redirect(url_for('viewCategory'))
+    return render_template('RecipeCategories.html')
+        # return render_template('ViewPage.html', uname=username, result={})
 
-"""#adding recipe category
-@app.route('/addCategory')
-
+#adding recipe category
+@App.route('/addCategory', methods=['GET', 'POST'])
 def addCategory():
-	return render_template('addCategory.html')
+    if request.method == 'GET':
+	    return render_template('addCategory.html')
+    else:
+        response = Category.addCategory(request.form['title'])
 
-#adds categories to the site
-@app.route('/categoryAdded', methods = ['POST'])
-def addedCategory():
+    if response['status']:
+        session['categories'] = response['categories']
+        return redirect(url_for('viewCategory'))
 
-	category = list()
-	category.append(str(request.form['categoryName']))#adds the entered category to a list
+    else:
+        return render_template('addCategory.html', errorMessage = response['message'])
+        
+#shows all the category list added
+@App.route('/recipeCategory')
+def viewCategory():
 
-	return render_template('RecipeCategories.html', result = category)"""
+    return render_template('RecipeCategories.html')
+
+
+# #adds categories to the site
+# @app.route('/categoryAdded', methods = ['POST'])
+# def addedCategory():
+
+# 	category = list()
+# 	category.append(str(request.form['categoryName']))#adds the entered category to a list
+
+# 	return render_template('RecipeCategories.html', result = category)
 
 #adding recipe to the list
 @App.route('/addRecipe')
@@ -118,6 +152,6 @@ def added_Recipe():
 if __name__ == '__main__':
 
 
-    #App.debug = True
+    App.debug = True
     App.run()
     

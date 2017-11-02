@@ -4,31 +4,24 @@
 
 		<title>addCategory</title>
 
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<!--<script>
-			$(document).ready(function(){
-    			$("#btn").click(function(){
-        			$("li").append("<label >CATEGORY NAME:</label> 
-				<input type = \"text\" class= \"btn-lg\"  name = \"addCategory\" style =\"padding-right: 30%;\">
-				<button id = \"btn\"><b>+</b></button><br />");
-    			});
-			});
-		</script>-->
+		
 	</head>
-	<body style="color:blue; background-color: #b9b9b9;">
+	<body class="body-color" style = "background-image:url('images/set-table.jpg');">
 
 		<h1 align = "center">YUMMY RECIPES</h1>
 
 		<div class = "container" align = "center" style = "padding-top:10%; display: block;">
 
-			<form class = "form-signin btn-lg " style = " display: block;" action = "/categoryAdded" method = "POST">
+			<form class = "form-signin btn-lg " style = " display: block;" action = "/addCategory" method = "POST">
 
 				<li>
 
+					{{errorMessage}}
+
 					<label >CATEGORY NAME:</label> 
-					<input type = "text" class= "btn-lg"  name = "categoryName" style ="padding-right: 30%;">
+					<input type = "text" class= "btn-lg"  name = "title" style ="padding-right: 30%;">
 					<!--<label id = "btn"><b>+</b></label><br />-->
 				
 				</li>

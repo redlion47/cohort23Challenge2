@@ -4,23 +4,13 @@
 
 		<title>Recipe Categories</title>
 
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script>
-			$(document).ready(function(){
-    			$("#del").click(function(){
-       				 $("#lst").remove();
-    			});
-			});
-		</script>
 		
-
 	</head>
+	<body class="body-color" style = "background-image:url('images/set-table.jpg');">
 
-	<body style="background-color: #b9b9b9;">
-
-		<h1 style = "color: blue;" align = "center" class="form-signin-heading">YUMMY RECIPES</h1>
+		<h1 align = "center">YUMMY RECIPES</h1>
 
 		<b align ="left">Welcome {{ uname }}!</b>
 
@@ -39,11 +29,11 @@
 
 					</li>
 
-					{% for key in result %}
+					{% for category in session.categories %}
 
 					<li id="lst">
 
-						<b style = "padding-right: 10%;">{{ key }}</b>
+						<b style = "padding-right: 10%;">{{category.title}}</b>
 
 						<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')"></button>
 						<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>

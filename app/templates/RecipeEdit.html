@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang ="en">
+	<head>
+
+		<title>Edit</title>
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	</head>
+	
+	<body  class="body-color" style = "background-image:url('images/set-table.jpg');">
+
+		<h1 align = "center" style="padding-right:10%"><i>YUMMY RECIPES</i></h1>
+
+		<div class ="container" align = "center" style = "padding-top:10%; display: block;">
+
+			<form action="/test" method = "POST">
+				{%if result != {}%}
+				
+				
+				<textarea name ="test">{{result}}</textarea>
+				<textarea name ="test">{{result}}</textarea>
+				<textarea name ="test">{{result}}</textarea>
+
+
+
+
+				{%else%}
+
+				<input type= "text" name="test">
+				{%endif%}
+
+				<button class="btn btn-primary glyphicon glyphicon-save" type ="button">SAVE</button>
+
+			</form>
+
+			
+			
+		</div>
+	</body>
+</html> 
