@@ -6,7 +6,6 @@ python: '3.6.2'
 install: 
   - pip install -r requirements.txt
   - pip install coveralls
-  - pip install appdirs --upgrade
 
 script:
   # - python test_web_app.py

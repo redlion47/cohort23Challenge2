@@ -34,7 +34,6 @@ e) enjoy
 
 You can also use gunicorn
 
-
 a) run gunicorn app:App
 
 c) browse at 127.0.0.1:8000
