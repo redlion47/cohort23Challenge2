@@ -26,7 +26,7 @@ a) do clone and /or download it from https://github.com/redlion47/cohort23Challe
 
 b)run pip install requirment.txt to install all the requirements
 
-c) run python app.py
+c) run python run.py
 
 d)browse at 127.0.0.1:5000
 
@@ -34,9 +34,7 @@ e) enjoy
 
 You can also use gunicorn
 
-a) cd to the app directory
-
-b) run gunicorn app:App
+a) run gunicorn app:App
 
 c) browse at 127.0.0.1:8000
 
