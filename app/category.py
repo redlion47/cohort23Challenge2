@@ -21,6 +21,24 @@ class Category:
 
 class recipe(Category):
 
-    def __init__(self,title,recipe, ingredients, instructions):
-        pass
+    def __init__(self,catTitle,recipe, ingredients, instructions):
+        self.catTitle = catTitle
+        self.recipe = recipe
+        self.ingredients = ingredients
+        self.instructions = instructions
+
+    def joinRecipeToCategory(catTitle,recipe, ingredients, instructions):
+        pickedCategory  = cats[catTitle]
+        recipes = {}
+        recipes['recipe'] = recipe
+        recipes['ingredients'] = ingredients
+        recipes['instructions'] = instructions
+
+        for categ in cats:
+            if categ[catTitle]:
+                return categ
+
+
+
+
         

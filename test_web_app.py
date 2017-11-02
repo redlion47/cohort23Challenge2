@@ -29,7 +29,7 @@ class LoginTest(unittest.TestCase):
 	def test_signUp(self):
 		resp = App.test_client(self)
 		response = resp.post('/UserReg', data=dict(username='admin', password='password', email ='red@admin.ng', conpassword='password' ), follow_redirects=True)
-		self.assertIn(b'WELCOME TO YUMMY admin', response.data)
+		self.assertIn(b'username', response.data)
 
 
 
