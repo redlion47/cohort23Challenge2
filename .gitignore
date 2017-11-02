@@ -1,5 +1,5 @@
 #testin my .gitignore
-
+__pycache__/
 TDDtrials/
 FlaskApp/
 tests/
