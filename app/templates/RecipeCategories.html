@@ -15,8 +15,9 @@
 		<b align ="left">Welcome {{ uname }}!</b>
 
 		<div class ="container" align = "center" style = "padding-top:10%; display: block;">
+			
 
-			<b>
+			<b class="form-layout">
 
 				<ol type="1">
 
@@ -41,7 +42,7 @@
 					<li id="lst">
 						<tr>
 
-							<td><a href="url_for('added_Recipe', title = category.title)"></a><b style = "padding-right: 10%;">{{category.title}}</b></td>
+							<td><a href="{{url_for('added_Recipe', title = category.title)}}"><b style = "padding-right: 10%;">{{category.title}}</b></a></td>
 
 							<td>
 								<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')"></button>
@@ -56,6 +57,8 @@
 				</ol>
 
 			</b>
+
+			
 
 			<button class="btn btn-primary" style = "padding-left: 10%; padding-right: 10%;" onclick="location.href='/addCategory';"><b>+ ADD CATEGORY</b></button>
 			

@@ -18,3 +18,9 @@ class Category:
     def getCategories():
 
         return cats
+
+class recipe(Category):
+
+    def __init__(self,title,recipe, ingredients, instructions):
+        pass
+        

@@ -1,8 +1,9 @@
 """This file is ensuring the
 UIs interract seamlessly"""
 from flask import Flask, render_template, request, redirect, url_for, session
+#from . import config
 
-import category, usersReg
+from . import category, usersReg
 
 Category = category.Category
 
@@ -13,7 +14,7 @@ Category = category.Category
 App = Flask(__name__, instance_relative_config=True, static_url_path='', static_folder='static')
 App.config.from_object('config')
 
-App.config.from_object('config')
+# App.config.from_object('config')
 
 #start the home page
 @App.route('/')
@@ -135,25 +136,37 @@ def add_Recipe():
 
 
 #adds recipe to the site
+@App.route('/recipeAdded')
 @App.route('/recipeAdded', methods=['POST'])
 def added_Recipe():
     """This function anables a
     controlled adding of recipes"""
 
-    recipe_name = str(request.form['recipeName'])
-    ingredients = str(request.form['ingredients'])
-    instructions = str(request.form['instructions'])
 
-
-    category = {}
     
-    category['recipeName'] = recipe_name
 
-    category['Ingredients'] = ingredients
-    category['Instructions'] = instructions
-    #category.append(str(request.form['recipeName']))#adds the entered category to a list
+    if request.method == 'POST':
+        recipe_name = str(request.form['recipeName'])
+        ingredients = str(request.form['ingredients'])
+        instructions = str(request.form['instructions'])
 
-    return render_template('ViewPage.html', result=category)
+
+        category = {}
+    
+        category['recipeName'] = recipe_name
+
+        category['Ingredients'] = ingredients
+        category['Instructions'] = instructions
+        category.append(str(request.form['recipeName']))#adds the entered category to a list
+        return render_template('ViewPage.html', result=category)
+
+    else:
+        title = request.args['title']
+        return render_template('ViewPage.html', result={})
+
+    
+
+    
 
 if __name__ == '__main__':
 
