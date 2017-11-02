@@ -1,10 +1,18 @@
 """This file is ensuring the
 UIs interract seamlessly"""
 from flask import Flask, render_template, request, redirect, url_for, session
-import category
+
+import category, usersReg
+
+Category = category.Category
+
+Users = usersReg.UsersReg
+
 
 Category = category.Category
 App = Flask(__name__, instance_relative_config=True, static_url_path='', static_folder='static')
+App.config.from_object('config')
+
 App.config.from_object('config')
 
 #start the home page
@@ -37,7 +45,7 @@ def sign_Up():
     requirements are executed"""
     #code to get the input entered by the user
     username = request.form['username']
-    #email = request.form['email']
+    email = request.form['email']
     pwd = request.form['password']
     conpwd = request.form['conpassword']
 
@@ -46,7 +54,17 @@ def sign_Up():
     #validation of the data received
     if pwd == conpwd:
 
-        return redirect(url_for('show_Login'))# return render_template('ViewPage.html', uname=username, result={})
+        response = Users.addUsersReg(username,email,pwd)
+
+        if response['status']:
+
+            session['Users'] = response['UsersReg']
+
+            return redirect(url_for('show_Login'))# return render_template('ViewPage.html', uname=username, result={})
+
+        else:
+            return render_template('UserReg.html', errorMessage = response['message'])
+
 
     else:
         return render_template('UserReg.html', errorMessage="!!YOUR CONFIRMATION \
@@ -87,7 +105,11 @@ def addCategory():
     if response['status']:
         session['categories'] = response['categories']
         return redirect(url_for('viewCategory'))
+
+    else:
+        return render_template('addCategory.html', errorMessage = response['message'])
         
+#shows all the category list added
 
 @App.route('/recipeCategory')
 def viewCategory():

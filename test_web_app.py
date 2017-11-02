@@ -30,7 +30,6 @@ class LoginTest(unittest.TestCase):
 		resp = App.test_client(self)
 		response = resp.post('/UserReg', data=dict(username='admin', password='password', email ='red@admin.ng', conpassword='password' ), follow_redirects=True)
 		self.assertIn(b'WELCOME TO YUMMY admin', response.data)
-		pass
 
 
 
