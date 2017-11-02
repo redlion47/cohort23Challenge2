@@ -15,28 +15,41 @@
 		<b align ="left">Welcome {{ uname }}!</b>
 
 		<div class ="container" align = "center" style = "padding-top:10%; display: block;">
+			
 
-			<b>
+			<b class="form-layout">
 
 				<ol type="1">
 
 					<li id="lst">
+						<tr>
 
-						<b style = "padding-right: 10%;">first category</b>
+							<td><b style = "padding-right: 10%;">first category</b></td>
 
-						<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')"></button>
-						<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
+							<td>
+								<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')"></button>
+								<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
+							</td>
+
+						</tr>
+
+						
 
 					</li>
 
 					{% for category in session.categories %}
 
 					<li id="lst">
+						<tr>
 
-						<b style = "padding-right: 10%;">{{category.title}}</b>
+							<td><a href="{{url_for('added_Recipe', title = category.title)}}"><b style = "padding-right: 10%;">{{category.title}}</b></a></td>
 
-						<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')"></button>
-						<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
+							<td>
+								<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')"></button>
+								<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
+							</td>
+
+						</tr>
 
 					</li>
 					{% endfor %}
@@ -44,6 +57,8 @@
 				</ol>
 
 			</b>
+
+			
 
 			<button class="btn btn-primary" style = "padding-left: 10%; padding-right: 10%;" onclick="location.href='/addCategory';"><b>+ ADD CATEGORY</b></button>
 			
