@@ -8,11 +8,11 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		
 	</head>
-	<body class="body-color" style = "background-image:url('images/set-table.jpg');">
+	<body class="body-color" style = "background-image:url('images/Pizza-Flour.jpg');">
 
 		<h1 align = "center">YUMMY RECIPES</h1>
 
-		<b align ="left">Welcome {{ uname }}!</b>
+		<b align ="left">Welcome {{session.uName}}!</b>
 
 		<div class ="container" align = "center" style = "padding-top:10%; display: block;">
 			
@@ -21,32 +21,16 @@
 
 				<ol type="1">
 
-					<li id="lst">
-						<tr>
-
-							<td><b style = "padding-right: 10%;">first category</b></td>
-
-							<td>
-								<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')"></button>
-								<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
-							</td>
-
-						</tr>
-
-						
-
-					</li>
-
 					{% for category in session.categories %}
 
 					<li id="lst">
 						<tr>
 
-							<td><a href="{{url_for('added_Recipe', title = category.title)}}"><b style = "padding-right: 10%;">{{category.title}}</b></a></td>
+							<td><a href="{{url_for('displayRecipes', title = category.title)}}"><b style = "padding-right: 10%;">{{category.title}}</b></a></td>
 
 							<td>
 								<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')"></button>
-								<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
+								<a href="{{url_for('delCategory',title= category.title,recipeStatus = False)}}"><button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button></a>
 							</td>
 
 						</tr>
@@ -54,9 +38,10 @@
 					</li>
 					{% endfor %}
 
+					
 				</ol>
 
-			</b>
+			</form>
 
 			
 

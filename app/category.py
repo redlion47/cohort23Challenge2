@@ -42,44 +42,89 @@ class recipe(Category):
         the recipes the user adds
         with the category selected"""
 
-        if catTitle != "":
-            if recipe != "" and (ingredients != "" or instructions != ""):
-                
-                recipes = {}
-                recipes['recipe'] = recipe
-                recipes['ingredients'] = ingredients
-                recipes['instructions'] = instructions
+        if recipe != "" and (ingredients != "" or instructions != ""):
+            recipeLst = []
+            recipes = {}
+            recipes['recipe'] = recipe
+            recipes['ingredients'] = ingredients
+            recipes['instructions'] = instructions
 
-                for categ in cats:
-                    for key, value in categ.items():
-                        if value == catTitle:
-                            categ[recipe] = recipes
+            for categ in cats:
+                for key, value in categ.items():
+                    if value == catTitle:
+                        temp = cats.index(categ)
+                        # categ[recipe] = recipes
+                        if key != 'title':
+                            recipeLst.append(key)
+                            pass
 
-                        else:
-                            break
+                    else:
+                        break
 
-                cats.append(categ)
-                message = "Recipe successfully added!!!!"
+            
 
-                return {'status' : True, 'message': message, 'categoryRecipes' : cats }
+            cats[temp][recipe] = recipes
 
-            else:
-                message = "You can't leave a recipe empty. Can you cook water??"
-                return {'status' : False, 'message' : message}
+            # cats.append(categ)
+            message = "Recipe successfully added!!!!"
+
+            return {'status' : True, 'message': message, 'categoryRecipes' : recipeLst }
 
         else:
-            return {'status': False, 'message' : "Please provide a category!"}
+            message = "You can't leave a recipe empty. Can you cook water??"
+            return {'status' : False, 'message' : message}
 
 
-    def deletionFromStore(self):
+
+    def deletionFromStore(category, recipe=None):
         """This method is for enabling deletion
         of both categories and recipes from our
         storage point"""
-        
-        pass
 
-    def getRecipeList(self):
+        if recipe == None:
+            # categorylst =[]
+            for eachCategory in cats:
+                for key, value in eachCategory.items():
+                    if value == category:
+
+                        cats.remove(eachCategory)
+
+                    else:
+                        break
+                # categorylst.append(eachCategory['title'])
+            # return categorylst
+            return cats
+
+        else:
+            recipelst = []
+            for eachCategory in cats:
+                for key, value in eachCategory.items():
+                    if value == category:
+
+                        del eachCategory[recipe]
+                        if key != 'title':
+                            recipelst.append(key)
+
+                    else:
+                        break
+
+            return recipelst
+
+        
+
+    def getRecipeList(category):
         """This method will be used to get a 
         list of all the recipes associated 
         with a category"""
-        pass
+        recipeList = []
+        for eachCategory in cats:
+            for key,value in eachCategory.items():
+                if value == category:
+                    if key != "title" :
+                        recipeList.append(key)
+
+                else:
+                    break
+
+        return recipeList
+        

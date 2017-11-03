@@ -5,12 +5,13 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		
 	</head>
-	<body  class="body-color" style = "background-image:url('images/set-table.jpg');">
+	<body  class="body-color" style = "background-image:url('images/Pizza-Flour.jpg');">
 		
 		<h1 align = "center" style="padding-right:10%"><i>YUMMY RECIPES</i></h1>
 
 		<div class = "container" align = "center" style = "padding-top:10%; display: block;">
-			<form class = "form-signin btn-lg" style = " display: block;" action = "/recipeAdded" method = "POST">
+			<form class = "form-signin btn-lg" style = " display: block;" action = "{{url_for('added_Recipe', title = session.category)}}" method = "POST">
+				{{session.message}}
 				<label style ="padding-right:2%;">RECIPE NAME:</label> 
 				<input type = "text" class= "btn-lg"  name = "recipeName" style ="padding-right:27%;">
 				<br />

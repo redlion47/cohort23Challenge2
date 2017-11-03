@@ -8,7 +8,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		
 	</head>
-	<body class="body-color" style = "background-image:url('images/set-table.jpg');">
+	<body class="body-color" style = "background-image:url('images/Pizza-Flour.jpg');">
 
 		<h1 align = "center">YUMMY RECIPES</h1>
 
@@ -18,23 +18,18 @@
 
 				<ol type="1" >
 
-					<li id="lst">
+					{{session.message}}
 
-						<b style = "padding-right: 10%;">First Recipe in your list</b>
 
-						<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')"></button>
-						<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
+					{% for key in session.recipeLst %}
 
-					</li>
-
-					{% for key in result %}
 
 					<li id="lst">
 
 						<b style = "padding-right: 10%;">{{ key }}</b>
 
 						<button class="btn btn-primary glyphicon glyphicon-pencil" onclick="alert('About to edit')"></button>
-						<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
+						<a href="{{url_for('delCategory',title= session.category, recipeStatus = True, recipe = key)}}"><button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button></a>
 
 					</li>
 					{% endfor %}
@@ -43,7 +38,7 @@
 
 			</b>
 
-			<button class="btn btn-primary" style = "padding-left: 10%; padding-right: 10%;" onclick="location.href='/addRecipe';"><b>+ ADD RECIPE</b></button>
+			<a href="{{url_for('add_Recipe', title = session.category)}}"><button class="btn btn-primary" style = "padding-left: 10%; padding-right: 10%;" ><b>+ ADD RECIPE</b></button></a>
 			
 		</div>
 	</body>
