@@ -5,10 +5,9 @@
 		<title>My Recipe</title>
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		
 	</head>
-	<body class="body-color" style = "background-image:url('images/Pizza-Flour.jpg');">
+	<body class="body-color" ><!-- style = "background-image:url('images/Pizza-Flour.jpg');" -->
 
 		<h1 align = "center">YUMMY RECIPES</h1>
 
@@ -17,13 +16,15 @@
 			<b>
 
 				<ol type="1" >
-
 					{{session.message}}
+
+					{{session.recipeLst}}
+
 
 
 					{% for key in session.recipeLst %}
 
-
+					
 					<li id="lst">
 
 						<b style = "padding-right: 10%;">{{ key }}</b>

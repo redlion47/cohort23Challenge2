@@ -41,29 +41,35 @@ class recipe(Category):
         """This category associates 
         the recipes the user adds
         with the category selected"""
-
+        recipeLst = []
         if recipe != "" and (ingredients != "" or instructions != ""):
-            recipeLst = []
+            
             recipes = {}
             recipes['recipe'] = recipe
             recipes['ingredients'] = ingredients
             recipes['instructions'] = instructions
 
             for categ in cats:
+                print(categ)
                 for key, value in categ.items():
+                    print(key,value)
                     if value == catTitle:
+                        print(catTitle)
                         temp = cats.index(categ)
+                        print(temp)
                         # categ[recipe] = recipes
                         if key != 'title':
                             recipeLst.append(key)
-                            pass
+                            print(recipeLst)
+                            print(key)
 
                     else:
                         break
 
-            
+
 
             cats[temp][recipe] = recipes
+            print(cats[temp][recipe])
 
             # cats.append(categ)
             message = "Recipe successfully added!!!!"

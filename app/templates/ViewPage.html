@@ -3,10 +3,9 @@
 	<head>
 		<title>ViewPage</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		
 	</head>
-	<body class="body-color" style = "background-image:url('images/Pizza-Flour.jpg');">
+	<body class="body-color" ><!-- style = "background-image:url('images/Pizza-Flour.jpg');" -->
 
 		<h1 align = "center">YUMMY RECIPES</h1>
 
@@ -36,17 +35,8 @@
 				</tr>
 
 
-				<tr>
-					<td><ol><li>ugali madondo</li></ol></td>
-					<td><ul><li>flour beans</li></ul></td>
-					<td><ul><li>cook at high temperature</li></ul></td>
-					<td>
-						<button class="btn btn-primary glyphicon glyphicon-pencil" type ="button"></button>
-						<button id = "del" class="btn btn-primary glyphicon glyphicon-remove" ></button>
-					</td>
-
-				</tr>
-				<!--{% if results != {} %}
+				
+				{% if results != {} %}
 
 				<tr>
 
@@ -59,7 +49,7 @@
 					</td>
 
 				</tr>
-				{%endif%}-->
+				{%endif%}
 				
 			</table>
 			<div>
